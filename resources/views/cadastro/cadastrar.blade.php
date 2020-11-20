@@ -6,7 +6,7 @@
 <div id="page-content">
     <div class="container">
         @if(!empty(session('error')))
-            <div class='alert alert-danger' role='alert'>{{session('error')}}</div>
+            <div class='alert alert-danger' role='alert'><strong>Erro:</strong>{{session('error')}}</div>
         @endif
         @if(!empty(session('success')))
                 <div class='alert alert-success' role='alert'>{{session('success')}}</div>

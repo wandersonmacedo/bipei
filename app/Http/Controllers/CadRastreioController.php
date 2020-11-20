@@ -82,15 +82,15 @@ class CadRastreioController extends Controller
             if (CodigoRastreio::where('cod_rastreio',$codrastreio)->count() == 0) {
 
                 if (CodigoRastreio::create([ "cod_rastreio" => $codrastreio, "data_cadastro" => $datacadastro, "hora_cadastro" => $horacadastro,"user_id" => Auth::id()])) {
-                    return redirect('cadastrar')->with('success'," Código de rastreio <strong>" . $codrastreio . "</strong> cadastrado com sucesso! ");
+                    return redirect('cadastrar')->with('success'," Código de rastreio " . $codrastreio . " cadastrado com sucesso! ");
                 } else {
-                    return redirect('cadastrar')->with('error'," Erro! ");
+                    return redirect('cadastrar')->with('error'," Problema ao tentar salvar ! ");
                 }
             } else {
-                return redirect('cadastrar')->with('error',"<strong>Erro:</strong> Código de rastreio <strong>" . $codrastreio . "</strong> já cadastrado!");
+                return redirect('cadastrar')->with('error', " Código de rastreio " . $codrastreio . " já cadastrado!");
             }
         } else {
-            return redirect('cadastrar')->with('error',"<strong>Erro:</strong> Código de rastreio inválido!");
+            return redirect('cadastrar')->with('error'," Código de rastreio inválido!");
         }
     }
 
