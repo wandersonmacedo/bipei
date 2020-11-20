@@ -15,6 +15,13 @@
     <link href="{{ url('css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ url('css/main.css') }}" rel="stylesheet">
     <link rel="icon" href="{{url('favicon.ico')}}" type="image/x-icon">
+    @if(!empty($info["DataCadastro"]))
+        <title> Rastreio {{$info["DataCadastro"]}}</title>
+    @endif
+    @if(!empty($consulta["mes_inicio"]))
+        <title> Rastreios {{ \App\Helpers\Utils::mes_atual(substr($consulta["mes_inicio"], 0, 7))}} </title>
+    @endif
+
 </head>
 <body>
 <div id="app">

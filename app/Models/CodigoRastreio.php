@@ -51,12 +51,4 @@ class CodigoRastreio extends Model
         return DB::table('codigo_rastreio')->select(DB::raw("DATE_FORMAT(data_cadastro, '%Y-%m') data_cadastro"))->distinct('data_cadastro')->where('user_id',Auth::id())->get();
     }
 
-    public function findProduct()
-    {
-        $response = Http::post('https://www2.correios.com.br/sistemas/rastreamento/resultado_semcontent.cfm', [
-            'Objetos' => 'OL059792865BR',
-        ]);
-        return $response;
-
-    }
 }

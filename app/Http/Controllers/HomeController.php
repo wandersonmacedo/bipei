@@ -40,8 +40,6 @@ class HomeController extends Controller
         $arrayCod = $codRastreiobyData->getCodigoRastreioByDate(false);
         $arrayCod["getDistinctDate"] = $codRastreiobyData->getDistinctDate();
         $arrayCod["all"] = CodigoRastreio::where('user_id',Auth::id())->get();
-       $tes = new Rastreio();
-     var_dump($tes->get('OL453785791BR'));
         return view('home')->with('codRastreioByDate',$arrayCod);
     }
 }
