@@ -61,7 +61,6 @@
                         <option>Selecionar data:</option>]
                         @if(!empty($codRastreioByDate["getDistinctDate"]))
                             @foreach($codRastreioByDate["getDistinctDate"] as $codRastreioData)
-
                                 <option value='?data_cadastro={{$codRastreioData->data_cadastro}}'>{{\App\Helpers\Utils::formata_data($codRastreioData->data_cadastro)}}</option>";
                             @endforeach
                         @endif

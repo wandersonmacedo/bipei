@@ -39,12 +39,12 @@ class CodigoRastreio extends Model
 
     public function getDistinctDate()
     {
-        return CodigoRastreio::select('data_cadastro')->where('user_id',Auth::id())->distinct()->get();
+        return CodigoRastreio::select('data_cadastro')->where('user_id',Auth::id())->distinct()->orderBy('data_cadastro','DESC')->get();
     }
 
     public function getDistinctDateByDay()
     {
-        return DB::table('codigo_rastreio')->select("data_cadastro")->distinct('data_cadastro')->where('user_id',Auth::id())->get();
+        return DB::table('codigo_rastreio')->select("data_cadastro")->distinct('data_cadastro')->where('user_id',Auth::id())->orderBy('data_cadastro','desc')->get();
     }
     public function getDistinctDateByMonth()
     {

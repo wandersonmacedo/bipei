@@ -8,7 +8,7 @@
                     <div class="form-group">
                         <select class="form-control font-weight-bold select_dia" onChange="window.location.href=this.value">
                             <option>Relatório diário:</option>
-                            @if(empty($consulta["listRastreio"]))
+                            @if(!empty($consulta["listRastreio"]))
                                 @foreach($consulta["listRastreio"] as $row)
                                     <option value='{{route('exportarMes')}}?data_cadastro={{$row->data_cadastro}}'>{{\App\Helpers\Utils::formata_data($row->data_cadastro)}}</option>
                                 @endforeach
