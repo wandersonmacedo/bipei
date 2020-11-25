@@ -45,6 +45,7 @@ class Utils
     /* Nome do mÊs na exportação de relatório */
     public static function mes_atual($mes)
     {
+        
         $data = date("Y");
         switch ($mes) {
             case $data . "-01":

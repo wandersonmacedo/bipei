@@ -40,7 +40,7 @@
             </div>
             <?php } ?>
             <?php if($_GET){ ?>
-            <h5 class="mt-3 mb-3">Lista de rastreios {{\App\Helpers\Utils::formata_data($codRastreioByDate["DataCadastro"])}} - Total de postagens: {{$codRastreioByDate["qntd_rastreios"]}}</h5>
+            <h5 class="mt-3 mb-3">Lista de rastreios {{\App\Helpers\Utils::formata_data($codRastreioByDate["DataCadastro"])}} - Total de postagens: {{empty($codRastreioByDate["qntd_rastreios"])?$codRastreioByDate["seleCount"]:count($codRastreioByDate["qntd_rastreios"])}}</h5>
             <?php } else { ?>
             <div class="row mb-3">
                 <div class="col-md-8 my-2">
@@ -61,6 +61,7 @@
                         <option>Selecionar data:</option>]
                         @if(!empty($codRastreioByDate["getDistinctDate"]))
                             @foreach($codRastreioByDate["getDistinctDate"] as $codRastreioData)
+
                                 <option value='?data_cadastro={{$codRastreioData->data_cadastro}}'>{{\App\Helpers\Utils::formata_data($codRastreioData->data_cadastro)}}</option>";
                             @endforeach
                         @endif
@@ -79,7 +80,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @if(!empty($codRastreioByDate["all"]))
+                    @if(!empty($codRastreioByDate["sele"]) && !empty($_GET["data_cadastro"]))
+                        @foreach($codRastreioByDate["sele"] as $row)
+                            <tr>
+                                <td class='d-none'>{{$row['id']}}</td>
+                                <td><span class='cod-rastreio font-weight-bolder text-uppercase'>{{$row['cod_rastreio']}}</span></td>
+                                <td>{{\App\Helpers\Utils::formata_data($row['data_cadastro'])}}</td>
+                                <td>{{$row['hora_cadastro']}}</td>
+                                <td class='text-center'>
+                                    <button type='button' class='btn btn-primary btn-sm btn-remove' data-toggle='modal' data-target='#removeId{{$row['id']}}' data-rastreio='{{$row['cod_rastreio']}}'>
+                                        <svg width='1em' height='1em' viewBox='0 0 16 16' class='bi bi-trash-fill' fill='currentColor' xmlns='http://www.w3.org/2000/svg'> <path fill-rule='evenodd' d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z'/> </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+                    @if(!empty($codRastreioByDate["all"]) && empty($_GET["data_cadastro"]))
                         @foreach($codRastreioByDate["all"] as $row)
                             <tr>
                                 <td class='d-none'>{{$row['id']}}</td>

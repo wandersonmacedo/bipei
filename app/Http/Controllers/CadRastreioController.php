@@ -19,7 +19,7 @@ class CadRastreioController extends Controller
     public function remove($id)
     {
         CodigoRastreio::where('id',$id)->delete();
-        return $this->index();
+        return redirect()->back();
     }
 
     public function exportar(Request $request)
@@ -55,7 +55,12 @@ class CadRastreioController extends Controller
             $mes_final = date('Y-m-d');
         }
         $codRas['consulta'] = CodigoRastreio::where('user_id',Auth::id())->whereBetween("data_cadastro",[$mes_inicio,$mes_final])->get();
-        $codRas['qntd_rastreios_mes'] = count($codRas);
+        if(!empty($_GET["data_cadastro"]))
+        {
+            $codRas['consulta'] = CodigoRastreio::where('user_id',Auth::id())->where("data_cadastro",$_GET["data_cadastro"])->get();
+        }
+
+        $codRas['qntd_rastreios_mes'] = count($codRas['consulta']);
         $model = new CodigoRastreio();
         $codRas["listRastreio"] =  $model->getDistinctDateByDay();
         $codRas["distData"] = $model->getDistinctDateByMonth();

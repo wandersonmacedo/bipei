@@ -16,7 +16,7 @@
     <link href="{{ url('css/main.css') }}" rel="stylesheet">
     <link rel="icon" href="{{url('favicon.ico')}}" type="image/x-icon">
     @if(!empty($info["DataCadastro"]))
-        <title> Rastreio {{\App\Helpers\Utils::formata_data($info["DataCadastro"])}}</title>
+        <title> Rastreios {{\App\Helpers\Utils::formata_data($info["DataCadastro"])}}</title>
     @endif
     @if(!empty($consulta["mes_inicio"]))
         <title> Rastreios {{ \App\Helpers\Utils::mes_atual(substr($consulta["mes_inicio"], 0, 7))}} </title>
