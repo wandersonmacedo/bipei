@@ -20,14 +20,14 @@
                             <form action="{{ route('login') }}" method="post" name="Login_Form" class="form-signin">
                                 @csrf
 {{--                                <input type="text" class="form-control my-2 font-weight-bold" name="usuario" placeholder="Seu usuário" required="" autofocus="" />--}}
-                                <input id="email" type="email" class="form-control my-2 font-weight-bold @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control my-2 font-weight-bold @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="E-mail" autofocus>
 
                                 @error('email')
                                 <span class="invalid-feedback alert alert-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <input id="password" type="password" class="form-control my-2 font-weight-bold @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control my-2 font-weight-bold @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="senha">
 
                                 @error('password')
                                 <span class="invalid-feedback alert alert-danger" role="alert">
