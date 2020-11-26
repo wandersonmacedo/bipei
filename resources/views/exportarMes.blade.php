@@ -10,7 +10,7 @@
                             <option>Relatório diário:</option>
                             @if(!empty($consulta["listRastreio"]))
                                 @foreach($consulta["listRastreio"] as $row)
-                                    <option value='{{route('exportarMes')}}?data_cadastro={{$row->data_cadastro}}'>{{\App\Helpers\Utils::formata_data($row->data_cadastro)}}</option>
+                                    <option value='{{route('exportar')}}?data_cadastro={{$row->data_cadastro}}'>{{\App\Helpers\Utils::formata_data($row->data_cadastro)}}</option>
                                 @endforeach
                             @endif
                         </select>

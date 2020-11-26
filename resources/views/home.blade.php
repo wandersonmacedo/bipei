@@ -109,6 +109,7 @@
                                 </td>
                             </tr>
                        @endforeach
+                    @endif
                         @if(empty($codRastreioByDate["all"]) && empty($_GET["data_cadastro"]))
                         <script>
 											var element = document.getElementsByClassName('box-table')[0];
