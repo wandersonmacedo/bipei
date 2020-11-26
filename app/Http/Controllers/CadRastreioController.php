@@ -13,7 +13,7 @@ class CadRastreioController extends Controller
 
     public function index()
     {
-        return view('cadastro/cadastrar')->with('codRastreio',CodigoRastreio::where('user_id',Auth::id())->orderBy('data_cadastro','desc')->take(5)->get());
+        return view('cadastro/cadastrar')->with('codRastreio',CodigoRastreio::where('user_id',Auth::id())->orderBy('id','desc')->take(5)->get());
     }
 
     public function remove($id)

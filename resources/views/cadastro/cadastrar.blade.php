@@ -1,8 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
 <body class="d-flex flex-column">
-
 <div id="page-content">
     <div class="container">
         @if(!empty(session('error')))
@@ -60,7 +58,7 @@
     <div class="container">
         <div class="col-12 py-4 text-center">
             <img src="images/logo-footer.svg" class="d-block mx-auto">
-            <span class="text-muted">Powered by: <a href="http://efetive.com" target="blank">Efetive</a>  &copy; 2020</span>
+            <span class="text-muted">Powered by: <a href="https://efetive.com" target="blank">Efetive</a>  &copy; 2020</span>
         </div>
     </div>
 </div>
@@ -88,3 +86,4 @@
 <script src="js/_main.js"></script>
 </body>
 </html>
+@endsection

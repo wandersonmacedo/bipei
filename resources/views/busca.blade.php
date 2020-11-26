@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <body class="d-flex flex-column">
 <div id="page-content">
@@ -26,7 +25,7 @@
                             <tr>
                                 <td class='d-none'>{{$row['id']}}</td>
                                 <td><span class='cod-rastreio font-weight-bolder text-uppercase'>{{$row['cod_rastreio']}}</span></td>
-                                <td>{{$row['data_cadastro']}}</td>
+                                <td>{{\App\Helpers\Utils::formata_data($row['data_cadastro'])}}</td>
                                 <td>{{$row['hora_cadastro']}}</td>
                                 <td class='text-center'>
                                             <button type='button' class='btn btn-primary btn-sm btn-remove' data-toggle='modal' data-target='#removeId{{$row['id']}}' data-rastreio='{{$row['cod_rastreio']}}'>
@@ -52,7 +51,7 @@
     <div class="container">
         <div class="col-12 py-4 text-center">
             <img src="images/logo-footer.svg" class="d-block mx-auto">
-            <span class="text-muted">Powered by: <a href="http://efetive.com" target="blank">Efetive</a>  &copy; 2020</span>
+            <span class="text-muted">Powered by: <a href="https://efetive.com" target="blank">Efetive</a>  &copy; 2020</span>
         </div>
     </div>
 </div>
@@ -81,3 +80,4 @@
 <script src="{{url('js/jquery.dataTables.min.js')}}"></script>
 <script src="{{url('js/_main.js')}}"></script>
 </html>
+@endsection

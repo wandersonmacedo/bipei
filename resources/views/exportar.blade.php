@@ -74,12 +74,11 @@
         </div>
     </div>
 </div>
-</div>
 <div class="footer">
     <div class="container">
         <div class="col-12 py-4 text-center">
             <img src="images/logo-footer.svg" class="d-block mx-auto">
-            <span class="text-muted">Powered by: <a href="http://efetive.com" target="blank">Efetive</a>  &copy; 2020</span>
+            <span class="text-muted">Powered by: <a href="https://efetive.com" target="blank">Efetive</a>  &copy; 2020</span>
         </div>
     </div>
 </div>

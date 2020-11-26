@@ -24,7 +24,7 @@
 
 </head>
 <body>
-<div id="app">
+<div id="app" class="d-flex flex-column h-100">
     @guest
     @else
     <nav class="navbar navbar-expand-md navbar-dark bg-purple fixed-top p-2 mb-3">
@@ -70,7 +70,7 @@
         </div>
     </nav>
     @endguest
-    <main class="py-4">
+    <main class="d-flex flex-column h-100">
         @yield('content')
     </main>
 </div>
