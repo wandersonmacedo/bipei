@@ -27,7 +27,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <input id="password" type="password" class="form-control my-2 font-weight-bold @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="senha">
+                                <input id="password" type="password" class="form-control my-2 font-weight-bold @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Senha">
 
                                 @error('password')
                                 <span class="invalid-feedback alert alert-danger" role="alert">
